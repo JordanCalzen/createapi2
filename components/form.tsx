@@ -11,7 +11,6 @@ export type InputProps = {
 	price: number;
 	qty: number;
 	description: string;
-	images: string[];
 };
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -37,7 +36,9 @@ export default function ProductForm() {
 				body: JSON.stringify(data),
 			});
 			console.log(data);
-			reset();
+			if (res) {
+				reset();
+			}
 		} catch (error) {
 			console.log(error);
 		}
